@@ -1,0 +1,31 @@
+a:4:{s:8:"template";s:18:"ample-business-pro";s:4:"mods";a:19:{i:0;b:0;s:18:"nav_menu_locations";a:2:{s:7:"primary";i:6;s:11:"social-link";i:9;}s:18:"custom_css_post_id";i:744;s:33:"ample_business_top_header_section";s:4:"show";s:21:"ample_business_notice";s:17:"Latest Activities";s:26:"ample_business_news_cat_id";i:4;s:35:"ample_business_info_header_location";s:16:"kathmandu, nepal";s:52:"ample_business_info_header_section_phone_number_icon";s:8:"fa-phone";s:35:"ample_business_info_header_phone_no";s:10:"9860324523";s:32:"ample_business_info_header_email";s:21:"amplethemes@gmail.com";s:21:"ample_business_button";s:10:"Contact Us";s:32:"ample_business_apply_button_link";s:1:"#";s:33:"ample_business_banner_all_sliders";s:222:"[{"selectpage":"391","button_text":"our services","button_url":"#","button_text2":"know More","button_url2":"#"},{"selectpage":"387","button_text":"Contact Us","button_url":"#","button_text2":"Be Ready","button_url2":"#"}]";s:37:"ample_business_homepage_slider_option";s:4:"show";s:34:"ample_business_info_header_section";s:4:"show";s:11:"custom_logo";i:696;s:37:"ample_business_front_page_hide_option";b:1;s:46:"ample_business_exclude_cat_blog_archive_option";s:2:"11";s:58:"ample_business_select_number_of_columns_reated_post_option";s:8:"col-sm-4";}s:7:"options";a:18:{s:32:"cf7md_options[use_custom_styles]";b:1;s:31:"cf7md_options[primary_on_light]";s:7:"#3f51b5";s:30:"cf7md_options[primary_on_dark]";s:7:"#3f51b5";s:30:"cf7md_options[button_on_light]";s:0:"";s:36:"cf7md_options[button_hover_on_light]";s:0:"";s:35:"cf7md_options[btn_text_light_theme]";s:7:"#FFFFFF";s:29:"cf7md_options[button_on_dark]";s:0:"";s:35:"cf7md_options[button_hover_on_dark]";s:0:"";s:34:"cf7md_options[btn_text_dark_theme]";s:7:"#FFFFFF";s:33:"cf7md_options[text_hint_on_light]";s:3:"0.5";s:28:"cf7md_options[text_on_light]";s:4:"0.87";s:32:"cf7md_options[text_hint_on_dark]";s:4:"0.72";s:27:"cf7md_options[text_on_dark]";s:1:"1";s:29:"cf7md_options[base_font_size]";s:2:"18";s:26:"cf7md_options[font_family]";s:20:""Roboto", sans-serif";s:25:"cf7md_options[custom_css]";s:0:"";s:9:"site_icon";s:1:"0";s:23:"nav_menus_created_posts";a:0:{}}s:6:"wp_css";s:687:".owl-theme .owl-controls .owl-buttons div {
+
+    display: inline-block;
+    zoom: 1;
+    padding: 4px 10px;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 0;
+    background: #000000;
+    filter: Alpha(Opacity=50);
+    opacity: 0.5;
+    color: #ffffff;
+    line-height: 47px;
+    cursor: pointer;
+    font-size: 24px;
+    margin: 0;
+    border: none;
+    color: #FFF;
+    display: inline-block;
+    zoom: 1;
+    margin: 1px;
+    padding: 0px 8px;
+    font-size: 20px;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 0;
+    background: #000000;
+    filter: Alpha(Opacity=50);
+    opacity: 0.5;
+    padding-right: 10px;
+}";}

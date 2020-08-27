@@ -1,0 +1,4 @@
+a:4:{s:8:"template";s:20:"online-portfolio-pro";s:4:"mods";a:7:{i:0;b:0;s:18:"nav_menu_locations";a:2:{s:7:"primary";i:5;s:7:"sidebar";N;}s:18:"custom_css_post_id";i:116;s:35:"online_portfolio_banner_all_sliders";s:63:"[{"selectpage":"101","button_text":"Hire Me","button_url":"#"}]";s:39:"online_portfolio_homepage_slider_option";s:4:"show";s:39:"online_portfolio_front_page_hide_option";b:1;s:11:"custom_logo";i:172;}s:7:"options";a:2:{s:9:"site_icon";s:1:"0";s:23:"nav_menus_created_posts";a:0:{}}s:6:"wp_css";s:57:"#header #logo {
+    float: left;
+    margin-top: -20px;
+}";}
