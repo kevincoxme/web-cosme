@@ -59,3 +59,6 @@ sr.reveal('.contact__input',{interval: 200});
 /* Initialize MicroModal */
 MicroModal.init();
 
+function __close(id){
+  document.querySelector('#' + id).classList.remove("is-open");
+}
