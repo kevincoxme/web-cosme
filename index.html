@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+        <link rel="stylesheet" href="assets/css/micromodal.css">
         <link rel="stylesheet" href="assets/css/styles.css">
 
         <!-- =====BOX ICONS===== -->
@@ -216,22 +217,22 @@
 
                 <div class="work__container bd-grid">
                     <div class="work__img">
-                        <img src="assets/img/uploads/daily.png" alt="">
+                        <a href="javascript:void(0)" data-micromodal-trigger="daily-modal"><img src="assets/img/uploads/daily.png" alt=""></a>
                     </div>
                     <div class="work__img">
-                        <img src="assets/img/uploads/scoreboard.png" alt="">
+                        <a href="javascript:void(0)" data-micromodal-trigger="scoreboard-modal"><img src="assets/img/uploads/scoreboard.png" alt=""></a>
                     </div>
                     <div class="work__img">
-                        <img src="assets/img/uploads/dost.jpg" alt="">
+                        <a href="javascript:void(0)" data-micromodal-trigger="dost-modal"><img src="assets/img/uploads/dost.jpg" alt=""></a>
                     </div>
                     <div class="work__img">
-                        <img src="assets/img/uploads/teravera.jpg" alt="">
+                        <a href="javascript:void(0)" data-micromodal-trigger="teravera-modal"><img src="assets/img/uploads/teravera.jpg" alt=""></a>
                     </div>
                     <div class="work__img">
-                        <img src="assets/img/uploads/doctor-is-right.png" alt="">
+                        <a href="javascript:void(0)" data-micromodal-trigger="doctor-modal"><img src="assets/img/uploads/doctor-is-right.png" alt="" width="100%"></a>
                     </div>
                     <div class="work__img">
-                        <img src="assets/img/uploads/waterbilling.png" alt="">
+                        <a href="javascript:void(0)" data-micromodal-trigger="waterbilling-modal"><img src="assets/img/uploads/waterbilling.png" alt=""></a>
                     </div>
                 </div>
             </section>
@@ -268,8 +269,122 @@
             </div>
         </footer>
 
+        <div class="modal micromodal-slide" id="daily-modal" aria-hidden="true">
+            <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+              <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-title">
+                <header class="modal__header">
+                  <h2 class="modal__title" id="modal-1-title">
+                    Daily
+                  </h2>
+                </header>
+                <main class="modal__content" id="modal-1-content">
+                   <center> 
+                        <img src="assets/img/uploads/daily.png" alt=""> 
+                        <p><a href="https://dailyops.com.au/" target="_blank">DAiLY</a> is a digital maintenance management platform that gives you a simple and effective tool to monitor your critical business assets.</p>
+                    </center>
+                </main>
+              </div>
+            </div>
+        </div>
+
+        <div class="modal micromodal-slide" id="scoreboard-modal" aria-hidden="true">
+            <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+              <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-title">
+                <header class="modal__header">
+                  <h2 class="modal__title" id="modal-1-title">
+                    ICT Scoreboard
+                  </h2>
+                  <button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
+                </header>
+                <main class="modal__content" id="modal-1-content">
+                   <center> 
+                        <img src="assets/img/uploads/scoreboard.png" alt="">
+                        <p>ICT Scoreboard an internal web system used by ICT department to rate each of their completed task (aligned to wildly important goal or WIG)</p>
+                    </center>
+                </main>
+              </div>
+            </div>
+        </div>
+
+        <div class="modal micromodal-slide" id="dost-modal" aria-hidden="true">
+            <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+              <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-title">
+                <header class="modal__header">
+                  <h2 class="modal__title" id="modal-1-title">
+                    Quality Management Information System
+                  </h2>
+                  <button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
+                </header>
+                <main class="modal__content" id="modal-1-content">
+                   <center> 
+                        <img src="assets/img/uploads/dost.jpg" alt="">
+                        <p>Quality Management Information System or QMIS, an internal web system develop for department of science and technology, a wide system for Customer Survey, Online approval of Controlled documents, Computed Target Functional goal and generate reports for each their department.</p>
+                    </center>
+                </main>
+              </div>
+            </div>
+        </div>
+
+        <div class="modal micromodal-slide" id="teravera-modal" aria-hidden="true">
+            <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+              <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-title">
+                <header class="modal__header">
+                  <h2 class="modal__title" id="modal-1-title">
+                    Teravera Management System
+                  </h2>
+                  <button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
+                </header>
+                <main class="modal__content" id="modal-1-content">
+                   <center> 
+                        <img src="assets/img/uploads/teravera.jpg" alt="">
+                        <p>Teravera Management System is an Internal web system compose two of ther general system which is HRIS and Inventory System.</p>
+                    </center>
+                </main>
+              </div>
+            </div>
+        </div>
+
+        <div class="modal micromodal-slide" id="doctor-modal" aria-hidden="true">
+            <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+              <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-title">
+                <header class="modal__header">
+                  <h2 class="modal__title" id="modal-1-title">
+                    Teravera Management System
+                  </h2>
+                  <button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
+                </header>
+                <main class="modal__content" id="modal-1-content">
+                   <center> 
+                        <img src="assets/img/uploads/doctor-is-right.png" alt="">
+                        <p>An app which allows users to locate nearby doctors based on their specialty.</p>
+                    </center>
+                </main>
+              </div>
+            </div>
+        </div>
+
+        <div class="modal micromodal-slide" id="waterbilling-modal" aria-hidden="true">
+            <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+              <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-title">
+                <header class="modal__header">
+                  <h2 class="modal__title" id="modal-1-title">
+                    Teravera Management System
+                  </h2>
+                  <button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
+                </header>
+                <main class="modal__content" id="modal-1-content">
+                    <img src="assets/img/uploads/waterbilling.png" alt="">
+                    <p>A system that monitor the payment and the meter reading of customer’s waterbill, it has the ability to inform the customer for the due date of their payment and generates report.</p>
+                </main>
+              </div>
+            </div>
+        </div>
+
         <!--===== SCROLL REVEAL =====-->
         <script src="https://unpkg.com/scrollreveal"></script>
+
+        <!--===== MICRO MODAL =====-->
+        <script type="text/javascript" src="https://unpkg.com/micromodal/dist/micromodal.min.js"></script>
 
         <!--===== MAIN JS =====-->
         <script src="assets/js/main.js"></script>
