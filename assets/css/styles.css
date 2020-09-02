@@ -312,15 +312,17 @@ img{
   align-items: center;
   position: relative;
   font-weight: var(--font-semi);
-  padding: .5rem 1rem;
+  padding: 1rem 1rem;
   margin-bottom: var(--mb-4);
   border-radius: .5rem;
   box-shadow: 0 4px 25px rgba(14,36,49,.15);
+  width: 200px;
+  height: 200px;
 }
 .skills__icon{
-  font-size: 2rem;
-  margin-right: var(--mb-2);
   color: var(--first-color);
+  font-size: 80px;
+  margin-left: 5px;
 }
 .skills__names{
   display: flex;
@@ -370,6 +372,26 @@ img{
 }
 .skills__img{
   border-radius: .5rem;
+}
+
+.skills_tech_icons{
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  padding: 10px 5px;
+  border-radius: .5rem;
+  box-shadow: 0 4px 25px rgba(14,36,49,.15);
+  margin-bottom: 10px;
+  transition: 0.5s;
+  margin-left: 5px;
+}
+
+.skills__section .skills_tech_icons:hover{
+  transform: scale(1.1) !important;
+  color:red;
+}
+.ml-10{
+  margin-left: 10px !important
 }
 
 /* ===== WORK =====*/
