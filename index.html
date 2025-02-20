@@ -59,7 +59,7 @@
         <div class="home__data">
           <h1 class="home__title">
             Hi, I'm <span class="home__title-color">Kevin!</span><br />
-            Laravel Developer
+            Software Engineer
           </h1>
 
           <a href="#about" class="button">Learn More</a>
@@ -103,11 +103,11 @@
           <div>
             <h2 class="about__subtitle">I'm Kevin</h2>
             <p class="about__text">
-              A Laravel Developer with more than 5 years of quality PHP
-              development experience. Skilled at creating applications with PHP
-              web framework such as Laravel. Knowledgeable in developing user
-              interfaces with HTML, CSS and JavaScript and understanding of
-              MySQL. Proven team player when working with co-developers.
+              A Software Engineer with more than 5 years of quality PHP, MySQL
+              and NodeJS development experience. Skilled at creating
+              applications with Laravel, ExpressJS, developing user interfaces
+              using frontend libraries such as ReactJS and VueJS and. Proven
+              team player when working with co-developers.
             </p>
             <br />
             <a
@@ -249,7 +249,9 @@
     <!--===== FOOTER =====-->
     <footer class="footer">
       <div class="">
-        <p style="font-size: 14px">&#169; 2020 Copyright All Right Reserved</p>
+        <p style="font-size: 14px">
+          &#169; <span id="year"></span> Copyright All Right Reserved
+        </p>
       </div>
       <div class="footer__links">
         <ul>
@@ -570,5 +572,10 @@
 
     <!--===== MAIN JS =====-->
     <script src="assets/js/main.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        document.getElementById("year").innerText = new Date().getFullYear()
+      });
+    </script>
   </body>
 </html>
