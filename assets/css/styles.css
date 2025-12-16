@@ -97,6 +97,9 @@
 html {
   scroll-behavior: smooth;
   transition: background-color 0.3s ease;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
 }
 
 body {
@@ -106,6 +109,9 @@ body {
   color: var(--text-color);
   background-color: var(--body-color);
   transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
 }
 
 h1,
@@ -161,6 +167,10 @@ img {
   padding-bottom: 2rem;
   background-color: var(--body-color);
   transition: background-color 0.3s ease;
+  position: relative;
+  overflow: visible;
+  width: 100%;
+  max-width: 100vw;
 }
 
 /*===== MODAL =====*/
@@ -246,10 +256,22 @@ img {
   width: calc(100% - 2rem);
   margin-left: var(--mb-2);
   margin-right: var(--mb-2);
+  box-sizing: border-box;
+}
+
+@media screen and (max-width: 768px) {
+  .bd-grid {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 }
 
 .l-header {
   width: 100%;
+  max-width: 100vw;
   position: fixed;
   top: 0;
   left: 0;
@@ -257,7 +279,20 @@ img {
   background-color: var(--header-bg);
   box-shadow: 0 2px 8px var(--shadow-color);
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
-  backdrop-filter: blur(10px);
+  box-sizing: border-box;
+}
+
+@media screen and (min-width: 769px) {
+  .l-header {
+    backdrop-filter: blur(10px);
+  }
+}
+
+.l-main {
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+  box-sizing: border-box;
 }
 
 /*===== NAV =====*/
@@ -306,15 +341,80 @@ img {
     top: var(--header-height);
     right: -100%;
     width: 80%;
-    height: 100%;
+    height: calc(100vh - var(--header-height));
     padding: 2rem;
-    background-color: var(--nav-menu-bg);
+    background-color: var(--nav-menu-bg) !important;
     transition: .5s;
     box-shadow: -2px 0 10px var(--shadow-color);
+    z-index: var(--z-fixed);
+    overflow-y: auto;
+  }
+
+  .nav__menu.show {
+    background-color: var(--nav-menu-bg) !important;
   }
 
   .home__img {
     display: none;
+  }
+
+  /* Mobile responsive skills */
+  .skills_tech_icons {
+    width: 85px;
+    min-height: 100px;
+    padding: 6px 4px;
+    margin-left: 0;
+  }
+
+  .skills__icon {
+    font-size: 2.8rem;
+  }
+
+  .skills__icon-label {
+    font-size: 0.6rem;
+  }
+
+  .skills__section {
+    gap: 0.75rem;
+    justify-content: center;
+    margin-left: 0;
+    padding-left: 0;
+  }
+
+  .skills__category-title {
+    font-size: 1rem;
+    margin-top: var(--mb-3);
+  }
+
+  .ml-10 {
+    margin-left: 1rem !important;
+  }
+}
+
+/* Extra small screens */
+@media screen and (max-width: 480px) {
+  .skills_tech_icons {
+    width: 70px;
+    min-height: 85px;
+    padding: 5px 3px;
+    margin-left: 0;
+  }
+
+  .skills__icon {
+    font-size: 2rem;
+  }
+
+  .skills__icon-label {
+    font-size: 0.55rem;
+  }
+
+  .skills__section {
+    gap: 0.5rem;
+    justify-content: center;
+  }
+
+  .nav__menu {
+    width: 85%;
   }
 }
 
@@ -457,6 +557,7 @@ img {
   border-radius: .5rem;
   transition: all 0.3s ease;
   cursor: pointer;
+  margin-top: 50px;
 }
 
 .button:hover {
@@ -506,6 +607,7 @@ img {
 .about__info-item {
   display: flex;
   align-items: center;
+  justify-self: start;
   gap: var(--mb-2);
   color: var(--text-color);
   transition: color 0.3s ease;
@@ -518,6 +620,7 @@ img {
 
 .about__info-item span {
   font-size: var(--normal-font-size);
+  text-align: left;
 }
 
 /* ===== SKILLS =====*/
@@ -662,6 +765,8 @@ img {
   align-items: center;
   justify-content: flex-start;
   gap: 4px;
+  box-sizing: border-box;
+  flex-shrink: 0;
 }
 
 .skills__section .skills_tech_icons:hover {
@@ -677,10 +782,18 @@ img {
   justify-content: start;
   align-items: center;
   margin-top: var(--mb-4);
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .ml-10 {
   margin-left: 10px !important
+}
+
+@media screen and (max-width: 768px) {
+  .ml-10 {
+    margin-left: 1rem !important;
+  }
 }
 
 /* ===== EXPERIENCE =====*/
@@ -1040,6 +1153,7 @@ img {
     width: 457px;
     height: 457px;
     bottom: 15%;
+    top: 0;
   }
 
   .about__container,
@@ -1089,6 +1203,6 @@ img {
   }
 
   .home__img {
-    right: 10%;
+    right: -10%;
   }
 }
