@@ -25,7 +25,7 @@ const About = ({
       <SectionTitle>About</SectionTitle>
       <Grid>
         <AboutImageWrap>
-          <AboutImage src="/assets/img/uploads/Nerd-pana.png" alt="" />
+          <AboutImage src="/web-cosme/assets/img/uploads/Nerd-pana.png" alt="" />
         </AboutImageWrap>
         <Box>
           <AboutSubtitle>I&apos;m Kevin Monteza</AboutSubtitle>
@@ -69,7 +69,7 @@ const About = ({
           </AboutInfo>
           <Box component="br" />
           <ButtonSecondarySpacing
-            href="/assets/pdf/Kevin Monteza Resume.pdf"
+            href="/web-cosme/assets/pdf/Kevin Monteza Resume.pdf"
             target="_blank"
             rel="noreferrer"
             underline="none"

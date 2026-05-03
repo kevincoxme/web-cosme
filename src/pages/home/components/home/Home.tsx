@@ -57,7 +57,7 @@ export function Home({ experience, socials }: Props) {
           })}
         </HomeSocial>
         <HomeImageWrap>
-          <Box component="img" src="/assets/img/3236267.jpg" alt="" />
+          <Box component="img" src="/web-cosme/assets/img/3236267.jpg" alt="" />
         </HomeImageWrap>
       </HomeSection>
     </>
