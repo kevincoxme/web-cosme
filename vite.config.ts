@@ -4,7 +4,7 @@ import path from 'node:path';
 
 export default defineConfig({
   plugins: [react()],
-  base: 'https://github.com/kevincoxme/web-cosme',
+  base: '/web-cosme/',
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
