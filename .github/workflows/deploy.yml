@@ -33,19 +33,18 @@ jobs:
           git config --global user.name "github-actions"
           git config --global user.email "github-actions@github.com"
 
-          # Create or switch to gh-pages branch
-          git fetch origin gh-pages || echo "No gh-pages branch yet"
-          git checkout gh-pages || git checkout --orphan gh-pages
+          # Create a clean temporary directory
+          mkdir gh-pages-temp
+          cp -r dist/* gh-pages-temp/
+          touch gh-pages-temp/.nojekyll
 
-          # Remove old files
-          git rm -rf .
+          cd gh-pages-temp
 
-          # Copy build output (Vite = dist, CRA = build)
-          cp -r dist/* .
-
-          # Add .nojekyll (important for React routing)
-          touch .nojekyll
+          git init
+          git checkout -b gh-pages
 
           git add .
-          git commit -m "Deploy to gh-pages" || echo "No changes to commit"
+          git commit -m "Deploy to gh-pages"
+
+          git remote add origin https://github.com/${{ github.repository }}.git
           git push origin gh-pages --force
