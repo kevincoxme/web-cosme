@@ -13,6 +13,7 @@ import {
 } from './elements';
 import { ButtonLink } from '@/components';
 import { Socials } from '../../types';
+import laptopGuy from './../../../../assets/img/3236267.jpg';
 
 export type Props = {
   experience: number;
@@ -57,7 +58,7 @@ export function Home({ experience, socials }: Props) {
           })}
         </HomeSocial>
         <HomeImageWrap>
-          <Box component="img" src="/web-cosme/assets/img/3236267.jpg" alt="" />
+          <Box component="img" src={laptopGuy} alt="" />
         </HomeImageWrap>
       </HomeSection>
     </>

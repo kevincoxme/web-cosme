@@ -12,6 +12,7 @@ import {
 import { Box } from '@mui/material';
 import { FaBriefcase, FaCalendarAlt, FaMapMarkerAlt } from 'react-icons/fa';
 import { Section, SectionTitle } from '../home/elements';
+import nerdNana from './../../../../assets/img/uploads/Nerd-pana.png';
 
 const About = ({
   company = 'Vananaz Technologies Inc.',
@@ -25,7 +26,7 @@ const About = ({
       <SectionTitle>About</SectionTitle>
       <Grid>
         <AboutImageWrap>
-          <AboutImage src="/web-cosme/assets/img/uploads/Nerd-pana.png" alt="" />
+          <AboutImage src={nerdNana} alt="" />
         </AboutImageWrap>
         <Box>
           <AboutSubtitle>I&apos;m Kevin Monteza</AboutSubtitle>
@@ -69,7 +70,7 @@ const About = ({
           </AboutInfo>
           <Box component="br" />
           <ButtonSecondarySpacing
-            href="/web-cosme/assets/pdf/Kevin Monteza Resume.pdf"
+            href={`${import.meta.env.BASE_URL}assets/pdf/Kevin Monteza Resume.pdf`}
             target="_blank"
             rel="noreferrer"
             underline="none"
