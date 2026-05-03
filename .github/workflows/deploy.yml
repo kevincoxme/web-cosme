@@ -33,18 +33,17 @@ jobs:
           git config --global user.name "github-actions"
           git config --global user.email "github-actions@github.com"
 
-          # Create a clean temporary directory
+          rm -rf gh-pages-temp
           mkdir gh-pages-temp
           cp -r dist/* gh-pages-temp/
           touch gh-pages-temp/.nojekyll
 
           cd gh-pages-temp
-
           git init
           git checkout -b gh-pages
 
           git add .
           git commit -m "Deploy to gh-pages"
 
-          git remote add origin https://github.com/${{ github.repository }}.git
+          git remote add origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
           git push origin gh-pages --force
