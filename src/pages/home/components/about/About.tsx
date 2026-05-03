@@ -75,6 +75,7 @@ const About = ({
             rel="noreferrer"
             underline="none"
             text="View CV"
+            download
           />
         </Box>
       </Grid>
