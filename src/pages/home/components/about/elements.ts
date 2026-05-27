@@ -26,7 +26,6 @@ export const BodyText = styled(Typography)({
   color: 'var(--text-secondary)',
   lineHeight: 1.7,
   fontSize: '0.95rem',
-  textAlign: 'justify',
 });
 
 export const AboutInfo = styled(Box)({

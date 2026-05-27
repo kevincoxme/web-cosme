@@ -81,7 +81,6 @@ const HomeDescription = styled('p')({
   maxWidth: '480px',
   fontSize: '0.95rem',
   margin: '0 0 1.5rem',
-  textAlign: 'justify',
 });
 
 const HomeSocial = styled(Box)({

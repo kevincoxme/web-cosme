@@ -46,7 +46,6 @@ const WorkText = styled(Typography)({
   color: 'var(--text-secondary)',
   lineHeight: 1.6,
   fontSize: '0.82rem',
-  textAlign: 'justify',
 });
 
 export const TechWrap = styled(Box)({

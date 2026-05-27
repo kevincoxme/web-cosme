@@ -30,8 +30,7 @@ export const NavButton = styled('button', {
   minWidth: '80px',
   textAlign: 'left',
   '@media screen and (max-width: 768px)': {
-    flex: '0 0 calc(33% - 0.4rem)',
-    minWidth: '0',
+    flex: '0 0 auto',
     padding: '0.5rem 0.75rem',
   },
   '&:hover:not(:disabled)': {
@@ -216,6 +215,28 @@ export const ViewModeTab = styled('button', {
     backgroundColor: active ? '#ed6958' : 'rgba(255,255,255,0.06)',
   },
 }));
+
+export const ResponseMetaBar = styled(Box)({
+  display: 'flex',
+  alignItems: 'center',
+  gap: '1.25rem',
+  marginBottom: '0.85rem',
+  paddingBottom: '0.75rem',
+  borderBottom: '1px solid rgba(255,255,255,0.06)',
+  flexWrap: 'wrap',
+});
+
+export const MetaItem = styled(Box)({
+  display: 'flex',
+  alignItems: 'center',
+  gap: '0.35rem',
+  fontSize: '0.72rem',
+  fontFamily: '"SFMono-Regular", "Consolas", monospace',
+});
+
+export const MetaLabel = styled('span')({
+  color: '#5c6370',
+});
 
 export const FormatBar = styled(Box)({
   display: 'flex',

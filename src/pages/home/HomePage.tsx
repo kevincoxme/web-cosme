@@ -137,17 +137,30 @@ const ThemeBtn = styled('button')({
   },
 });
 
-const ContactFooter = styled(Box)({
-  marginTop: 'auto',
-  borderTop: '1px solid var(--panel-divider)',
-  padding: '0.9rem 1.5rem',
+const footerBase = {
+  borderTop: '1px solid rgba(255,255,255,0.08)',
+  padding: '0.9rem 1rem',
   display: 'flex',
-  gap: '1.25rem',
-  flexWrap: 'wrap',
-  backgroundColor: 'var(--footer-bg)',
+  gap: '1rem',
+  flexWrap: 'wrap' as const,
   flexShrink: 0,
+};
+
+const ContactFooter = styled(Box)({
+  ...footerBase,
+  marginTop: 'auto',
+  backgroundColor: 'var(--footer-bg)',
+  borderTopColor: 'var(--panel-divider)',
   transition: 'background-color 0.25s ease, border-color 0.25s ease',
   '@media screen and (min-width: 768px)': { padding: '0.9rem 2.5rem' },
+});
+
+const MobileFooter = styled(Box)({
+  ...footerBase,
+  display: 'none',
+  '@media screen and (max-width: 768px)': {
+    display: 'flex',
+  },
 });
 
 const FooterItem = styled(Box)({
@@ -253,13 +266,17 @@ const FadeSection = styled(Box)({
 export function HomePage() {
   const [active, setActive] = useState<SectionKey>('home');
   const [loading, setLoading] = useState(false);
+  const [responseTime, setResponseTime] = useState('—');
   const { isDark, toggleTheme } = useGlobalHook();
   const { socials } = useGetPortfolio();
 
   const handleSelect = (key: SectionKey) => {
     setActive(key);
     setLoading(true);
-    setTimeout(() => setLoading(false), 1000);
+    setTimeout(() => {
+      setLoading(false);
+      setResponseTime(`${Math.floor(Math.random() * 241) + 80} ms`);
+    }, 1000);
   };
 
   const formattedSocials: Socials = socials.map((item) => {
@@ -334,6 +351,7 @@ export function HomePage() {
             active={active}
             endpoint={mockApi[active]}
             loading={loading}
+            responseTime={responseTime}
             preview={
               <>
                 <LogoArea>
@@ -347,6 +365,25 @@ export function HomePage() {
             }
             onSelect={handleSelect}
           />
+          <MobileFooter>
+            <FooterItem>
+              <FiMail />
+              <FooterLink href="mailto:kevin.g.monteza@gmail.com">
+                kevin.g.monteza@gmail.com
+              </FooterLink>
+            </FooterItem>
+            <FooterItem>
+              <FiMapPin />
+              Philippines — WFH
+            </FooterItem>
+            <FooterItem>
+              <FiClock />
+              Open to Opportunities
+            </FooterItem>
+            <FooterCredit href="https://polar.sh" target="_blank" rel="noreferrer">
+              Inspired by polar.sh
+            </FooterCredit>
+          </MobileFooter>
           <MobileNavSpacer />
         </RightPanel>
       </PageWrapper>

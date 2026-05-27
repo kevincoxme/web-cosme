@@ -66,7 +66,6 @@ const BodyText = styled(Typography)({
   color: 'var(--text-secondary)',
   lineHeight: 1.65,
   fontSize: '0.875rem',
-  textAlign: 'justify',
 });
 
 export { Card, RowBetween, AccentTitle, Pill, CompanyText, TechWrap, TechTag, BodyText };

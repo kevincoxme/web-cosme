@@ -16,14 +16,16 @@ import {
   JsonLine,
   JsonLineNumber,
   JsonPre,
+  MetaItem,
+  MetaLabel,
   MethodBadge,
   NavButton,
   NavButtonDesc,
   NavButtonLabel,
   NavButtonsRow,
   PathText,
+  ResponseMetaBar,
   SectionLabel,
-  StatusBadge,
   ViewModeTab,
   ViewModeTabs,
 } from './elements';
@@ -171,6 +173,17 @@ function RawViewer({ data }: { data: Record<string, unknown> }) {
 type FormatType = 'JSON' | 'XML' | 'Raw';
 type ViewMode = 'response' | 'preview';
 
+function calcSize(data: Record<string, unknown>): string {
+  const bytes = new TextEncoder().encode(JSON.stringify(data)).length;
+  return bytes < 1024 ? `${bytes} B` : `${(bytes / 1024).toFixed(1)} KB`;
+}
+
+function statusColor(code: number): string {
+  if (code < 300) return '#98c379';
+  if (code < 400) return '#e5c07b';
+  return '#e06c75';
+}
+
 function getContent(data: Record<string, unknown>, fmt: FormatType): string {
   if (fmt === 'XML') return toXmlString(data, 'response');
   if (fmt === 'Raw') return JSON.stringify(data);
@@ -182,11 +195,12 @@ type Props = {
   active: SectionKey;
   endpoint: MockApiEntry;
   loading: boolean;
+  responseTime: string;
   preview: React.ReactNode;
   onSelect: (key: SectionKey) => void;
 };
 
-export function ApiPanel({ active, endpoint, loading, preview, onSelect }: Props) {
+export function ApiPanel({ active, endpoint, loading, responseTime, preview, onSelect }: Props) {
   const { method, path, headers, responseStatus, responseStatusText, responseBody } = endpoint;
   const [format, setFormat] = useState<FormatType>('JSON');
   const [copied, setCopied] = useState(false);
@@ -266,9 +280,24 @@ export function ApiPanel({ active, endpoint, loading, preview, onSelect }: Props
               </Box>
             ) : (
               <>
-                <StatusBadge status={responseStatus}>
-                  {responseStatus} {responseStatusText}
-                </StatusBadge>
+                <ResponseMetaBar>
+                  <MetaItem>
+                    <MetaLabel>Status:</MetaLabel>
+                    <span style={{ color: statusColor(responseStatus), fontWeight: 700 }}>
+                      {responseStatus} {responseStatusText}
+                    </span>
+                  </MetaItem>
+                  <MetaItem>
+                    <MetaLabel>Time:</MetaLabel>
+                    <span style={{ color: '#e5c07b', fontWeight: 600 }}>{responseTime}</span>
+                  </MetaItem>
+                  <MetaItem>
+                    <MetaLabel>Size:</MetaLabel>
+                    <span style={{ color: '#61afef', fontWeight: 600 }}>
+                      {calcSize(responseBody)}
+                    </span>
+                  </MetaItem>
+                </ResponseMetaBar>
                 <FormatBar>
                   <SectionLabel sx={{ mb: 0 }}>RESPONSE BODY</SectionLabel>
                   <Box sx={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
