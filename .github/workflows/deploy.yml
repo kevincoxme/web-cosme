@@ -31,21 +31,8 @@ jobs:
           cat dist/index.html
 
       - name: Deploy to gh-pages
-        run: |
-          git config --global user.name "github-actions"
-          git config --global user.email "github-actions@github.com"
-
-          rm -rf gh-pages-temp
-          mkdir gh-pages-temp
-          cp -r dist/* gh-pages-temp/
-          touch gh-pages-temp/.nojekyll
-
-          cd gh-pages-temp
-          git init
-          git checkout -b gh-pages
-
-          git add .
-          git commit -m "Deploy to gh-pages"
-
-          git remote add origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
-          git push origin gh-pages --force
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          commit_message: ${{ github.event.head_commit.message }}
