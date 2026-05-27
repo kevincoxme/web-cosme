@@ -1,22 +1,35 @@
 import { Section, SectionTitle } from '../home/elements';
-import { WorkCard, WorkContainer, WorkText, WorkTitle, WorkUrl } from './elements';
-import { Work as WorkProps } from '../../types';
+import { TechTag, TechWrap, WorkCard, WorkGrid, WorkText, WorkTitle, WorkUrl } from './elements';
+import { WorkResponseBody } from '../../data/mockApi';
+import { FiExternalLink } from 'react-icons/fi';
 
-const Work = ({ work }: { work: Array<WorkProps> }) => {
+type Props = {
+  data: WorkResponseBody;
+};
+
+const Work = ({ data }: Props) => {
   return (
     <Section id="work">
       <SectionTitle>Work</SectionTitle>
-      <WorkContainer>
-        {work.map((item, key) => (
+      <WorkGrid>
+        {data.data.map((item, key) => (
           <WorkCard key={key}>
             <WorkTitle>{item.title}</WorkTitle>
             <WorkText>{item.description}</WorkText>
-            <WorkUrl href={item.href} target="_blank">
-              {item.href}
-            </WorkUrl>
+            <TechWrap>
+              {item.tech.map((tag) => (
+                <TechTag key={tag}>{tag}</TechTag>
+              ))}
+            </TechWrap>
+            {item.url && (
+              <WorkUrl href={`https://${item.url}`} target="_blank" rel="noreferrer">
+                {item.url}
+                <FiExternalLink />
+              </WorkUrl>
+            )}
           </WorkCard>
         ))}
-      </WorkContainer>
+      </WorkGrid>
     </Section>
   );
 };

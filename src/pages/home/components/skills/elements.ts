@@ -1,88 +1,40 @@
 import { Box, styled, Typography } from '@mui/material';
 
-const SkillsSubtitle = styled(Typography)(({ theme }) => ({
-  marginBottom: 'var(--mb-2)',
-  color: 'var(--text-color)',
-  marginLeft: '1rem',
+const SkillsCategory = styled(Typography)({
+  fontSize: '0.7rem',
+  color: 'var(--text-muted)',
+  marginBottom: '0.6rem',
+  fontWeight: 600,
+  letterSpacing: '0.08em',
+  textTransform: 'uppercase',
+});
 
-  [theme.breakpoints.up('md')]: {
-    marginLeft: '10px',
-  },
-}));
+const SkillsSection = styled(Box)({ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' });
 
-const SkillsText = styled(Typography)(({ theme }) => ({
-  marginBottom: 'var(--mb-4)',
-  color: 'var(--text-color-light)',
-  marginLeft: '1rem',
-
-  [theme.breakpoints.up('md')]: {
-    marginLeft: '10px',
-  },
-}));
-
-const SkillsCategory = styled(Typography)(({ theme }) => ({
-  fontSize: '1.1rem',
-  color: 'var(--first-color)',
-  marginBottom: 'var(--mb-3)',
-  marginTop: 'var(--mb-4)',
-  fontWeight: 'var(--font-semi)',
-  textAlign: 'left',
-  marginLeft: '1rem',
-
-  [theme.breakpoints.up('md')]: {
-    marginLeft: '10px',
-  },
-}));
-
-const SkillsSection = styled(Box)(({ theme }) => ({
-  display: 'flex',
-  flexWrap: 'wrap',
-  gap: '0.75rem',
-  marginTop: 'var(--mb-4)',
-
-  [theme.breakpoints.up('sm')]: {
-    gap: '1rem',
-  },
-}));
-
-const SkillItem = styled(Box)(({ theme }) => ({
+const SkillItem = styled(Box)({
   display: 'flex',
   flexDirection: 'column',
-  width: '85px',
-  minHeight: '100px',
-  padding: '6px 4px',
-  borderRadius: '.5rem',
-  boxShadow: '0 4px 25px var(--shadow-color)',
-  marginBottom: '10px',
-  transition: 'all 0.3s ease',
-  marginLeft: 0,
-  backgroundColor: 'var(--container-color)',
+  width: '68px',
+  padding: '0.6rem 0.4rem',
+  borderRadius: '8px',
+  border: '1px solid var(--border)',
+  backgroundColor: 'var(--bg-card)',
   alignItems: 'center',
   justifyContent: 'center',
-  gap: '10px',
-
+  gap: '6px',
+  transition: 'all 0.2s ease',
   '&:hover': {
-    transform: 'translateY(-5px) scale(1.1)',
-    boxShadow: '0 8px 30px var(--shadow-hover)',
+    border: '1px solid rgba(237,105,88,0.3)',
+    backgroundColor: 'rgba(237,105,88,0.06)',
+    transform: 'translateY(-2px)',
   },
+});
 
-  [theme.breakpoints.up('sm')]: {
-    width: '100px',
-    minHeight: '110px',
-    padding: '8px 5px',
-    marginLeft: '5px',
-  },
-}));
-
-const SkillIconLabel = styled(Typography)(({ theme }) => ({
+const SkillIconLabel = styled(Typography)({
   fontSize: '0.6rem',
-  color: 'var(--text-color)',
+  color: 'var(--text-secondary)',
   textAlign: 'center',
   lineHeight: 1.2,
+});
 
-  [theme.breakpoints.up('sm')]: {
-    fontSize: '0.65rem',
-  },
-}));
-
-export { SkillsSubtitle, SkillIconLabel, SkillItem, SkillsCategory, SkillsSection, SkillsText };
+export { SkillIconLabel, SkillItem, SkillsCategory, SkillsSection };

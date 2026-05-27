@@ -23,161 +23,130 @@ const Grid = styled(Box)({
   },
 });
 
-const Main = styled('main')({
-  width: '100%',
-  overflowX: 'hidden',
-  boxSizing: 'border-box',
+const HomeSection = styled(Box)({
+  padding: '1.5rem 1.5rem 2rem',
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  flex: 1,
+  '@media screen and (min-width: 768px)': { padding: '2rem 2.5rem' },
+  '@media screen and (min-width: 1024px)': { padding: '2.5rem 3rem' },
 });
 
-const HomeSection = styled(Grid)({
-  position: 'relative',
-  height: 'calc(100vh - 3rem)',
-  rowGap: '1rem',
-  backgroundColor: 'var(--body-color)',
-  transition: 'background-color 0.3s ease',
-  '@media screen and (min-width: 768px)': { height: '100vh' },
-});
+const HomeData = styled(Box)({ maxWidth: '520px' });
 
-const HomeData = styled(Box)({
-  alignSelf: 'center',
-  '@media screen and (min-width: 768px)': { alignSelf: 'flex-end' },
-});
-
-const HomeTitle = styled('h1')({
-  fontSize: 'var(--big-font-size)',
-  marginBottom: 'var(--mb-5)',
-  color: 'var(--text-color)',
-  marginTop: 0,
-});
-
-const HomeTitleColor = styled('span')({
-  color: 'var(--first-color)',
-});
-
-const HomeSubtitle = styled('p')({
-  color: 'var(--text-color)',
-  fontWeight: 600,
-  marginBottom: '0.4rem',
-});
-
-const HomeDescription = styled('p')({
-  color: 'var(--text-color-light)',
-  lineHeight: 1.6,
-  maxWidth: '680px',
-});
-
-const HomeCtaText = styled('p')({
-  color: 'var(--text-color-light)',
-  lineHeight: 1.6,
-  maxWidth: '680px',
-});
-
-const HomeSocial = styled(Box)({
-  display: 'inline-flex',
-  flexDirection: 'row',
-  gap: '1.5rem',
-  '@media screen and (min-width: 768px)': {
-    paddingTop: 0,
-    paddingBottom: '2.5rem',
-    alignSelf: 'flex-end',
-  },
-});
-
-const HomeSocialLink = styled(Link)({
-  width: 'max-content',
-  marginBottom: 'var(--mb-2)',
-  fontSize: '1.25rem',
-  color: 'var(--text-color)',
-  transition: 'all 0.3s ease',
-  '&:hover': {
-    color: 'var(--first-color)',
-    transform: 'translateY(-3px) scale(1.1)',
-  },
-  '@media screen and (min-width: 768px)': {
-    marginBottom: 0,
-    marginRight: 'var(--mb-4)',
-  },
-});
-
-const HomeImageWrap = styled(Box)({
-  position: 'absolute',
-  right: 0,
-  marginRight: '-23%',
-  bottom: 0,
-  width: '295px',
-  height: '295px',
-  overflow: 'hidden',
+const HomeImageCircle = styled(Box)({
+  width: '110px',
+  height: '110px',
   borderRadius: '50%',
-  boxShadow: '0 10px 40px var(--shadow-color)',
-  transition: 'all 0.3s ease',
-  backgroundColor: 'var(--container-color)',
-  '&:hover': {
-    boxShadow: '0 15px 50px var(--shadow-hover)',
-    transform: 'scale(1.05)',
-  },
+  overflow: 'hidden',
+  border: '2px solid rgba(237,105,88,0.4)',
+  marginBottom: '1.5rem',
+  flexShrink: 0,
+  willChange: 'transform',
   '& img': {
     width: '100%',
     height: '100%',
     objectFit: 'cover',
-    borderRadius: '50%',
+    objectPosition: 'center 20%',
+    imageRendering: 'auto',
+    display: 'block',
   },
-  '@media screen and (max-width: 768px)': { display: 'none' },
-  '@media screen and (min-width: 768px)': {
-    width: '457px',
-    height: '457px',
-    bottom: '15%',
-    top: 0,
+});
+
+const HomeTitle = styled('h1')({
+  fontSize: 'clamp(1.6rem, 4vw, 2.8rem)',
+  marginBottom: '0.5rem',
+  color: 'var(--text-primary)',
+  marginTop: 0,
+  fontWeight: 700,
+  lineHeight: 1.1,
+});
+
+const HomeTitleColor = styled('span')({ color: 'var(--first-color)' });
+
+const HomeSubtitle = styled('p')({
+  color: 'var(--first-color)',
+  fontWeight: 600,
+  marginBottom: '0.5rem',
+  marginTop: 0,
+  fontSize: '0.78rem',
+  letterSpacing: '0.1em',
+  textTransform: 'uppercase',
+});
+
+const HomeDescription = styled('p')({
+  color: 'var(--text-secondary)',
+  lineHeight: 1.7,
+  maxWidth: '480px',
+  fontSize: '0.95rem',
+  margin: '0 0 1.5rem',
+  textAlign: 'justify',
+});
+
+const HomeSocial = styled(Box)({
+  display: 'flex',
+  flexDirection: 'row',
+  gap: '1rem',
+  marginTop: '1.5rem',
+});
+
+const HomeSocialLink = styled(Link)({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  width: '38px',
+  height: '38px',
+  borderRadius: '50%',
+  border: '1px solid var(--border-strong)',
+  fontSize: '1rem',
+  color: 'var(--text-muted)',
+  transition: 'all 0.2s ease',
+  '&:hover': {
+    color: 'var(--first-color)',
+    borderColor: 'rgba(237,105,88,0.5)',
+    backgroundColor: 'rgba(237,105,88,0.08)',
+    transform: 'translateY(-2px)',
   },
-  '@media screen and (min-width: 1024px)': { right: '-10%' },
 });
 
 const Section = styled('section')({
-  paddingTop: '3rem',
-  paddingBottom: '2rem',
-  backgroundColor: 'var(--body-color)',
-  '@media screen and (min-width: 768px)': {
-    paddingTop: '4rem',
-    paddingBottom: '3rem',
-  },
+  padding: '1.5rem 1.5rem 2rem',
+  backgroundColor: 'transparent',
+  '@media screen and (min-width: 768px)': { padding: '2rem 2.5rem' },
+  '@media screen and (min-width: 1024px)': { padding: '2.5rem 3rem' },
 });
 
 const SectionTitle = styled('h2')({
   position: 'relative',
-  fontSize: 'var(--h2-font-size)',
+  fontSize: 'clamp(1.1rem, 3vw, 1.5rem)',
   color: 'var(--first-color)',
-  marginTop: 'var(--mb-2)',
-  marginBottom: 'var(--mb-4)',
-  textAlign: 'center',
+  marginTop: 0,
+  marginBottom: '1.75rem',
+  paddingBottom: '0.75rem',
   '&::after': {
     position: 'absolute',
     content: '""',
-    width: '64px',
-    height: '0.18rem',
+    width: '40px',
+    height: '2px',
     left: 0,
-    right: 0,
-    margin: 'auto',
-    top: '2rem',
+    bottom: 0,
     backgroundColor: 'var(--first-color)',
-  },
-  '@media screen and (min-width: 768px)': {
-    marginBottom: 'var(--mb-6)',
-    '&::after': { width: '80px', top: '3rem' },
+    opacity: 0.6,
   },
 });
 
 export {
   Grid,
-  Main,
   HomeSection,
   HomeData,
+  HomeImageCircle,
   HomeTitle,
   HomeTitleColor,
   HomeSubtitle,
   HomeDescription,
-  HomeCtaText,
   HomeSocial,
   HomeSocialLink,
-  HomeImageWrap,
   Section,
   SectionTitle,
 };

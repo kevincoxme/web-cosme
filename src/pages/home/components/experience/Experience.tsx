@@ -1,5 +1,4 @@
-import { Experience as ExperienceType } from '../../types';
-import { Grid, Section, SectionTitle } from '../home/elements';
+import { Section, SectionTitle } from '../home/elements';
 import {
   AccentTitle,
   BodyText,
@@ -10,28 +9,33 @@ import {
   TechTag,
   TechWrap,
 } from './elements';
+import { ExperienceResponseBody } from '../../data/mockApi';
 
-const Experience = ({ experiences }: { experiences: Array<ExperienceType> }) => {
+type Props = {
+  data: ExperienceResponseBody;
+};
+
+const Experience = ({ data }: Props) => {
   return (
     <Section id="experience">
       <SectionTitle>Experience</SectionTitle>
-      <Grid>
-        {experiences.map((item, index) => (
-          <Card key={`${item.title}-${index}`}>
-            <RowBetween>
-              <AccentTitle>{item.title}</AccentTitle>
-              <Pill>{item.period}</Pill>
-            </RowBetween>
-            <CompanyText>{item.company}</CompanyText>
-            <BodyText>{item.description}</BodyText>
-            <TechWrap>
-              {item.tech.map((tag) => (
-                <TechTag key={tag}>{tag}</TechTag>
-              ))}
-            </TechWrap>
-          </Card>
-        ))}
-      </Grid>
+      {data.data.map((item, index) => (
+        <Card key={`${item.title}-${index}`}>
+          <RowBetween>
+            <AccentTitle>{item.title}</AccentTitle>
+            <Pill>{item.period}</Pill>
+          </RowBetween>
+          <CompanyText>
+            {item.company} | {item.location}
+          </CompanyText>
+          <BodyText>{item.description}</BodyText>
+          <TechWrap>
+            {item.tech.map((tag) => (
+              <TechTag key={tag}>{tag}</TechTag>
+            ))}
+          </TechWrap>
+        </Card>
+      ))}
     </Section>
   );
 };

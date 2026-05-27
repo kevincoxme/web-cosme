@@ -2,16 +2,15 @@ import { styled } from '@mui/material/styles';
 import { Box, Typography } from '@mui/material';
 
 const Card = styled(Box)({
-  padding: 'var(--mb-3)',
-  borderRadius: '.5rem',
-  backgroundColor: 'var(--container-color)',
-  boxShadow: '0 4px 25px var(--shadow-color)',
-  transition: 'all 0.3s ease',
-  marginBottom: 'var(--mb-3)',
-
+  padding: '1.25rem',
+  borderRadius: '10px',
+  backgroundColor: 'var(--bg-card)',
+  border: '1px solid var(--border)',
+  transition: 'all 0.2s ease',
+  marginBottom: '1rem',
   '&:hover': {
-    boxShadow: '0 8px 35px var(--shadow-hover)',
-    transform: 'translateY(-3px)',
+    border: '1px solid rgba(237,105,88,0.25)',
+    backgroundColor: 'rgba(237,105,88,0.04)',
   },
 });
 
@@ -20,51 +19,54 @@ const RowBetween = styled(Box)({
   justifyContent: 'space-between',
   alignItems: 'flex-start',
   flexWrap: 'wrap',
-  gap: 'var(--mb-1)',
-  marginBottom: 'var(--mb-2)',
+  gap: '0.5rem',
+  marginBottom: '0.4rem',
 });
 
 const AccentTitle = styled(Typography)({
-  fontSize: '1.25rem',
-  fontWeight: 'var(--font-semi)',
-  color: 'var(--first-color)',
+  fontSize: '1rem',
+  fontWeight: 600,
+  color: 'var(--text-primary)',
   margin: 0,
 });
 
 const Pill = styled(Box)({
-  fontSize: '0.875rem',
-  color: 'var(--text-color-light)',
-  backgroundColor: 'var(--body-color)',
-  padding: '0.25rem 0.75rem',
-  borderRadius: '1rem',
+  fontSize: '0.7rem',
+  color: 'var(--first-color)',
+  backgroundColor: 'rgba(237,105,88,0.1)',
+  padding: '2px 10px',
+  borderRadius: '12px',
+  border: '1px solid rgba(237,105,88,0.2)',
+  flexShrink: 0,
 });
 
 const CompanyText = styled(Typography)({
-  fontSize: '1rem',
-  fontWeight: 'var(--font-semi)',
-  color: 'var(--text-color)',
-  marginBottom: 'var(--mb-2)',
+  fontSize: '0.85rem',
+  color: 'var(--text-muted)',
+  marginBottom: '0.75rem',
 });
 
 const TechWrap = styled(Box)({
   display: 'flex',
   flexWrap: 'wrap',
-  gap: '0.5rem',
-  marginTop: 'var(--mb-2)',
+  gap: '0.4rem',
+  marginTop: '0.75rem',
 });
 
 const TechTag = styled(Box)({
-  fontSize: '0.75rem',
-  padding: '0.25rem 0.75rem',
-  backgroundColor: 'var(--first-color)',
-  color: '#fff',
-  borderRadius: '1rem',
-  fontWeight: 500,
+  fontSize: '0.65rem',
+  padding: '2px 8px',
+  backgroundColor: 'var(--bg-card)',
+  color: 'var(--text-muted)',
+  borderRadius: '8px',
+  border: '1px solid var(--border)',
 });
 
 const BodyText = styled(Typography)({
-  color: 'var(--text-color-light)',
-  lineHeight: 1.6,
+  color: 'var(--text-secondary)',
+  lineHeight: 1.65,
+  fontSize: '0.875rem',
+  textAlign: 'justify',
 });
 
 export { Card, RowBetween, AccentTitle, Pill, CompanyText, TechWrap, TechTag, BodyText };

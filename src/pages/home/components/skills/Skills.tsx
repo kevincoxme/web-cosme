@@ -1,16 +1,10 @@
 import { IconType } from 'react-icons';
-import { Grid, Section, SectionTitle } from '../home/elements';
-import {
-  SkillIconLabel,
-  SkillItem,
-  SkillsCategory,
-  SkillsSection,
-  SkillsSubtitle,
-  SkillsText,
-} from './elements';
+import { Section, SectionTitle } from '../home/elements';
+import { SkillIconLabel, SkillItem, SkillsCategory, SkillsSection } from './elements';
 
 import {
   SiBitbucket,
+  SiClaude,
   SiCss,
   SiExpress,
   SiFirebase,
@@ -30,6 +24,7 @@ import {
   SiNextdotjs,
   SiNodedotjs,
   SiNpm,
+  SiOpenai,
   SiPhp,
   SiPostgresql,
   SiPostman,
@@ -44,7 +39,19 @@ import {
 } from 'react-icons/si';
 import { FaAws, FaBootstrap, FaDocker, FaGitAlt, FaLinux } from 'react-icons/fa';
 import { VscCode } from 'react-icons/vsc';
-import { SkillGroup } from '../../types';
+import { SkillsResponseBody } from '../../data/mockApi';
+import {
+  AwsAmplify,
+  AwsAppRunner,
+  AwsCognito,
+  AwsECS,
+  AwsLambda,
+  AwsParameterStore,
+  AwsS3,
+  AwsSecretsManager,
+  AwsSES,
+  AwsWAF,
+} from './AwsIcons';
 
 const skillIconMap: Record<string, IconType> = {
   React: SiReact,
@@ -87,31 +94,45 @@ const skillIconMap: Record<string, IconType> = {
   Bitbucket: SiBitbucket,
   'CI/CD': VscCode,
   'Laravel Sail': FaDocker,
+  ChatGPT: SiOpenai,
+  Codex: SiOpenai,
+  Cursor: VscCode,
+  'Claude Code': SiClaude,
+  S3: AwsS3,
+  'Secrets Manager': AwsSecretsManager,
+  'Parameter Store': AwsParameterStore,
+  Amplify: AwsAmplify,
+  'App Runner': AwsAppRunner,
+  WAF: AwsWAF,
+  ECS: AwsECS,
+  Lambda: AwsLambda,
+  Cognito: AwsCognito,
+  SES: AwsSES,
 };
 
-const Skills = ({ skillGroups }: { skillGroups: Array<SkillGroup> }) => {
+type Props = {
+  data: SkillsResponseBody;
+};
+
+const Skills = ({ data }: Props) => {
   return (
     <Section id="skills">
       <SectionTitle>Skills</SectionTitle>
-      <Grid sx={{ width: '100%' }}>
-        <SkillsSubtitle as="h2">Professional Skills</SkillsSubtitle>
-        <SkillsText>A comprehensive overview of technologies and tools I work with.</SkillsText>
-      </Grid>
-      {skillGroups.map((group, index) => (
-        <Grid key={`${group.title}-${index}`} sx={{ width: '100%' }}>
-          <SkillsCategory>{group.title}</SkillsCategory>
+      {data.categories.map((group, index) => (
+        <div key={`${group.name}-${index}`} style={{ marginBottom: '1.5rem' }}>
+          <SkillsCategory>{group.name}</SkillsCategory>
           <SkillsSection>
-            {group.items.map((skill, skillIndex) => {
-              const SkillIcon = skillIconMap[skill.icon] ?? VscCode;
+            {group.items.map((name, skillIndex) => {
+              const SkillIcon = skillIconMap[name] ?? VscCode;
               return (
                 <SkillItem key={skillIndex}>
-                  <SkillIcon style={{ fontSize: '3rem', color: 'var(--first-color)' }} />
-                  <SkillIconLabel>{skill.name}</SkillIconLabel>
+                  <SkillIcon style={{ fontSize: '1.6rem', color: 'var(--first-color)' }} />
+                  <SkillIconLabel>{name}</SkillIconLabel>
                 </SkillItem>
               );
             })}
           </SkillsSection>
-        </Grid>
+        </div>
       ))}
     </Section>
   );
