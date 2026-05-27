@@ -158,3 +158,51 @@ export const NavLink = styled(Link, {
     },
   }),
 }));
+
+export const LogoArea = styled(Box)({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'space-between',
+  padding: '1.25rem 2rem 0',
+  flexShrink: 0,
+  '@media screen and (max-width: 768px)': {
+    padding: '1rem 1.25rem 0',
+  },
+});
+
+export const LogoMark = styled(Box)({
+  width: '44px',
+  height: '44px',
+  borderRadius: '50%',
+  border: '1.5px solid var(--border-strong)',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  fontSize: '0.85rem',
+  fontWeight: 700,
+  color: '#ed6958',
+  letterSpacing: '0.05em',
+  fontFamily: '"SFMono-Regular", monospace',
+  flexShrink: 0,
+  backgroundColor: 'rgba(237,105,88,0.06)',
+});
+
+export const ThemeBtn = styled('button')({
+  width: '34px',
+  height: '34px',
+  borderRadius: '50%',
+  border: '1px solid var(--border-strong)',
+  backgroundColor: 'var(--bg-card)',
+  color: 'var(--text-muted)',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  cursor: 'pointer',
+  transition: 'all 0.2s ease',
+  flexShrink: 0,
+  '&:hover': {
+    borderColor: 'rgba(237,105,88,0.5)',
+    color: 'var(--first-color)',
+    backgroundColor: 'rgba(237,105,88,0.08)',
+  },
+});

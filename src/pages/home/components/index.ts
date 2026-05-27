@@ -5,3 +5,5 @@ export * from './experience';
 export * from './work';
 export * from './contact';
 export * from './api-panel';
+export * from './contact-footer';
+export * from './mobile-nav';

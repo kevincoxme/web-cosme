@@ -1,4 +1,4 @@
-import { Box, styled } from '@mui/material';
+import { Box, keyframes, styled } from '@mui/material';
 
 export const LayoutContainer = styled(Box)({
   /* ── spacing & typography ─────────────── */
@@ -70,4 +70,76 @@ export const LayoutContainer = styled(Box)({
     '--normal-font-size': '1rem',
   },
   overflowX: 'hidden',
+});
+
+const scrollbar = {
+  scrollbarWidth: 'thin' as const,
+  scrollbarColor: 'rgba(128,128,128,0.2) transparent',
+  '&::-webkit-scrollbar': { width: '4px' },
+  '&::-webkit-scrollbar-track': { background: 'transparent' },
+  '&::-webkit-scrollbar-thumb': { background: 'rgba(128,128,128,0.2)', borderRadius: '2px' },
+};
+
+export const PageWrapper = styled(Box)({
+  display: 'flex',
+  height: '100vh',
+  overflow: 'hidden',
+  backgroundColor: 'var(--bg)',
+  transition: 'background-color 0.25s ease',
+  '@media screen and (max-width: 768px)': {
+    flexDirection: 'column',
+    height: 'auto',
+    minHeight: '100vh',
+    overflow: 'visible',
+  },
+});
+
+export const LeftPanel = styled(Box)({
+  flex: '0 0 55%',
+  height: '100vh',
+  overflowY: 'auto',
+  borderRight: '1px solid var(--panel-divider)',
+  display: 'flex',
+  flexDirection: 'column',
+  backgroundColor: 'var(--bg-panel)',
+  transition: 'background-color 0.25s ease, border-color 0.25s ease',
+  ...scrollbar,
+  '@media screen and (max-width: 768px)': {
+    display: 'none',
+  },
+});
+
+export const RightPanel = styled(Box)({
+  flex: '0 0 45%',
+  height: '100vh',
+  overflowY: 'auto',
+  padding: '1.75rem',
+  backgroundColor: 'var(--right-panel-bg)',
+  transition: 'background-color 0.25s ease',
+  ...scrollbar,
+  '@media screen and (max-width: 1024px)': {
+    flex: '0 0 42%',
+    padding: '1.5rem',
+  },
+  '@media screen and (max-width: 768px)': {
+    flex: 'none',
+    height: 'auto',
+    minHeight: '100vh',
+    width: '100%',
+    padding: '1rem',
+    overflowY: 'visible',
+    order: 1,
+  },
+});
+
+const fadeIn = keyframes`
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+`;
+
+export const FadeSection = styled(Box)({
+  animation: `${fadeIn} 0.35s ease forwards`,
+  flex: 1,
+  display: 'flex',
+  flexDirection: 'column',
 });

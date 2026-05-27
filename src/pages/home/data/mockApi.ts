@@ -78,6 +78,7 @@ export type MockApiEntry = {
   responseBody: Record<string, unknown>;
 };
 
+// Placeholder only, no actual API being called
 const TOKEN = 'portfolio_pk_Km9x2vQpLr4nHz8Tt5mWe7y';
 
 export const mockApi: Record<SectionKey, MockApiEntry> = {

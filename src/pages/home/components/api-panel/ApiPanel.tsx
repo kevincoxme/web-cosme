@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Box, keyframes, styled } from '@mui/material';
 import { FiCheck, FiCode, FiCopy, FiEye } from 'react-icons/fi';
 import { MockApiEntry, navItems, SectionKey } from '../../data/mockApi';
+import { SectionSkeleton } from '../skeleton';
 import {
   ApiViewerRoot,
   CopyBtn,
@@ -249,7 +250,27 @@ export function ApiPanel({ active, endpoint, loading, responseTime, preview, onS
           ))}
         </HeadersSection>
 
-        {loading ? (
+        <ViewModeTabs>
+          <ViewModeTab active={viewMode === 'response'} onClick={() => setViewMode('response')}>
+            <FiCode size={11} /> Response
+          </ViewModeTab>
+          <ViewModeTab active={viewMode === 'preview'} onClick={() => setViewMode('preview')}>
+            <FiEye size={11} /> Preview
+          </ViewModeTab>
+        </ViewModeTabs>
+
+        {viewMode === 'preview' ? (
+          <Box
+            sx={{
+              borderRadius: '8px',
+              border: '1px solid rgba(255,255,255,0.07)',
+              overflow: 'hidden',
+              backgroundColor: 'var(--bg-panel, #fff)',
+            }}
+          >
+            {loading ? <SectionSkeleton section={active} /> : <FadeInBox>{preview}</FadeInBox>}
+          </Box>
+        ) : loading ? (
           <LoadingRow>
             <LoadingLabel>fetching</LoadingLabel>
             <Dot delay="-0.32s" />
@@ -258,67 +279,41 @@ export function ApiPanel({ active, endpoint, loading, responseTime, preview, onS
           </LoadingRow>
         ) : (
           <FadeInBox>
-            <ViewModeTabs>
-              <ViewModeTab active={viewMode === 'response'} onClick={() => setViewMode('response')}>
-                <FiCode size={11} /> Response
-              </ViewModeTab>
-              <ViewModeTab active={viewMode === 'preview'} onClick={() => setViewMode('preview')}>
-                <FiEye size={11} /> Preview
-              </ViewModeTab>
-            </ViewModeTabs>
-
-            {viewMode === 'preview' ? (
-              <Box
-                sx={{
-                  borderRadius: '8px',
-                  border: '1px solid rgba(255,255,255,0.07)',
-                  overflow: 'hidden',
-                  backgroundColor: 'var(--bg-panel, #fff)',
-                }}
-              >
-                {preview}
+            <ResponseMetaBar>
+              <MetaItem>
+                <MetaLabel>Status:</MetaLabel>
+                <span style={{ color: statusColor(responseStatus), fontWeight: 700 }}>
+                  {responseStatus} {responseStatusText}
+                </span>
+              </MetaItem>
+              <MetaItem>
+                <MetaLabel>Time:</MetaLabel>
+                <span style={{ color: '#e5c07b', fontWeight: 600 }}>{responseTime}</span>
+              </MetaItem>
+              <MetaItem>
+                <MetaLabel>Size:</MetaLabel>
+                <span style={{ color: '#61afef', fontWeight: 600 }}>{calcSize(responseBody)}</span>
+              </MetaItem>
+            </ResponseMetaBar>
+            <FormatBar>
+              <SectionLabel sx={{ mb: 0 }}>RESPONSE BODY</SectionLabel>
+              <Box sx={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <FormatTabs>
+                  {(['JSON', 'XML', 'Raw'] as FormatType[]).map((f) => (
+                    <FormatTab key={f} active={format === f} onClick={() => setFormat(f)}>
+                      {f}
+                    </FormatTab>
+                  ))}
+                </FormatTabs>
+                <CopyBtn copied={copied} onClick={handleCopy}>
+                  {copied ? <FiCheck size={10} /> : <FiCopy size={10} />}
+                  {copied ? 'Copied' : 'Copy'}
+                </CopyBtn>
               </Box>
-            ) : (
-              <>
-                <ResponseMetaBar>
-                  <MetaItem>
-                    <MetaLabel>Status:</MetaLabel>
-                    <span style={{ color: statusColor(responseStatus), fontWeight: 700 }}>
-                      {responseStatus} {responseStatusText}
-                    </span>
-                  </MetaItem>
-                  <MetaItem>
-                    <MetaLabel>Time:</MetaLabel>
-                    <span style={{ color: '#e5c07b', fontWeight: 600 }}>{responseTime}</span>
-                  </MetaItem>
-                  <MetaItem>
-                    <MetaLabel>Size:</MetaLabel>
-                    <span style={{ color: '#61afef', fontWeight: 600 }}>
-                      {calcSize(responseBody)}
-                    </span>
-                  </MetaItem>
-                </ResponseMetaBar>
-                <FormatBar>
-                  <SectionLabel sx={{ mb: 0 }}>RESPONSE BODY</SectionLabel>
-                  <Box sx={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                    <FormatTabs>
-                      {(['JSON', 'XML', 'Raw'] as FormatType[]).map((f) => (
-                        <FormatTab key={f} active={format === f} onClick={() => setFormat(f)}>
-                          {f}
-                        </FormatTab>
-                      ))}
-                    </FormatTabs>
-                    <CopyBtn copied={copied} onClick={handleCopy}>
-                      {copied ? <FiCheck size={10} /> : <FiCopy size={10} />}
-                      {copied ? 'Copied' : 'Copy'}
-                    </CopyBtn>
-                  </Box>
-                </FormatBar>
-                {format === 'JSON' && <JsonViewer data={responseBody} />}
-                {format === 'XML' && <XmlViewer data={responseBody} />}
-                {format === 'Raw' && <RawViewer data={responseBody} />}
-              </>
-            )}
+            </FormatBar>
+            {format === 'JSON' && <JsonViewer data={responseBody} />}
+            {format === 'XML' && <XmlViewer data={responseBody} />}
+            {format === 'Raw' && <RawViewer data={responseBody} />}
           </FadeInBox>
         )}
       </ApiViewerRoot>
