@@ -285,8 +285,27 @@ export const mockApi: Record<SectionKey, MockApiEntry> = {
     responseStatus: 200,
     responseStatusText: 'OK',
     responseBody: {
-      total: 8,
+      total: 9,
       data: [
+        {
+          title: 'Spendr',
+          url: 'spendr.me',
+          type: 'personal',
+          status: 'live',
+          description:
+            'A personal expense and budget tracking app that helps users monitor daily spending, categorize transactions, and gain clear insights into their financial habits.',
+          tech: [
+            'React',
+            'TypeScript',
+            'Firebase',
+            'Material UI',
+            'Anthropic',
+            'Gemini',
+            'OpenAI',
+            'Styled Components',
+            'Cloudflare Pages',
+          ],
+        },
         {
           title: 'VerseFire',
           url: 'versefire.online',
@@ -294,7 +313,7 @@ export const mockApi: Record<SectionKey, MockApiEntry> = {
           status: 'live',
           description:
             'A personal PWA project — a platform that delivers daily Bible verses, features an AI-powered Bible chat, and includes an offline Bible for easy access anytime.',
-          tech: ['React', 'TypeScript', 'Firebase', 'Material UI', 'Styled Components'],
+          tech: ['React', 'TypeScript', 'Firebase', 'Material UI', 'OpenAI', 'Styled Components'],
         },
         {
           title: 'careroster',
